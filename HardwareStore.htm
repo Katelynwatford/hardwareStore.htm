@@ -1,0 +1,52 @@
+<script type="text/javascript">
+<!--
+var employeeDiscountRate = .10;
+var largeOrderDiscountRate = .05;
+var contractorsDiscountRate = .20;
+var oldCustomerTaxRate = 0;
+var newCustomerTaxRate= .08;
+var largeOrderCutOff = 800;
+var oldCustomerCutOff = 90;
+var amountOfOriginalOrder, isContractor, isEmployee, timeAsCustomer;
+//input
+amountOfOriginalOrder = prompt("What is the amount of the original order?", "");
+isContractor = prompt("Are you a contractor?", "");
+isEmployee = prompt("Are you an employee?", "");
+timeAsCustomer = prompt("How long have you been a customer?", "");
+//calculations
+if (isContractor == "yes")
+{
+	discountRate = contractorsDiscountRate;
+}
+else if (isEmployee == "yes")
+{
+	discountRate = employeeDiscountRate;
+}
+else if (amountOfOriginalOrder > largeOrderCutOff)
+{
+	 discountRate = largeOrderDiscountRate;
+}
+else
+{
+	 discountRate = 0;
+}
+if (timeAsCustomer > oldCustomerCutOff)
+{
+	taxRate = oldCustomerTaxRate;
+}
+else
+{
+	taxRate = newCustomerTaxRate;
+}
+amountOfAnyDiscounts = amountOfOriginalOrder * discountRate;
+subtotal = amountOfOriginalOrder - amountOfAnyDiscounts;
+amountOfTax = subtotal * taxRate;
+finalAmountOfBill = subtotal + amountOfTax;
+//output
+document.write("The amount of the original order is: $" + amountOfOriginalOrder);
+document.write("<br>The amount of any discount is: $" + amountOfAnyDiscounts);
+document.write("<br>The subtotal is: $" + subtotal);
+document.write("<br>The tax is: $" + amountOfTax);
+document.write("<br>The final bill is: $" + finalAmountOfBill);
+// -->
+</script>
